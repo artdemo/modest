@@ -1,0 +1,27 @@
+.slider {
+    overflow: hidden;
+
+  @at-root &__page {
+    display: flex;
+    transition: transform 1s .5s;
+  }
+
+  @at-root &__item {
+    width: 100%;
+    flex: 0 0 auto;
+    padding: 100px 0 120px 0;
+
+    @at-root &_src_1 {
+      background: url(#{$sliderStoreImg}/newlife-hd.jpg) top left/cover;
+    }
+
+    @at-root &_src_2 {
+      background: url(#{$sliderStoreImg}/ball-hd.jpg) top left/cover;
+    }
+
+    @at-root &_src_3 {
+      background: url(#{$sliderStoreImg}/truck-hd.jpg) top left/cover;
+
+    }
+  }
+}

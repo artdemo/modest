@@ -1,0 +1,86 @@
+//=============RESET================//
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+ul,
+ol,
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input,
+textarea,
+button {
+  padding: 0;
+  margin: 0;
+}
+button {
+	border: none;
+}
+
+input {
+
+  &[type='submit'] {
+    -webkit-appearance: none;
+  }
+}
+
+//=============TYPO===============//
+html {
+  font-family: $fontMain;
+  color: $chost;
+  font-size: 62.5%;
+}
+
+h2,
+h3,
+h4 {
+  color: $shark;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-size: 2.6rem;
+  line-height: 3.0rem;
+}
+
+h3 {
+  font-size: 1.6rem
+}
+
+h4 {
+  font-size: 1.4rem;
+}
+
+p {
+  font-family: $fontSecond;
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+input,
+textarea {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  font-family: inherit;
+}

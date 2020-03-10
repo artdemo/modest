@@ -1,0 +1,26 @@
+.skillcase {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+
+  // >* {
+  // 	border: 1px solid orange;
+  // }
+
+  @at-root &__title {
+    margin-bottom: 10px;
+    order: 2;
+  }
+
+  @at-root &__content {
+    order: 3;
+  }
+
+  .icon {
+    width: 100%;
+    order: 1;
+    font-size: 30px;
+    color: $java;
+    margin-bottom: 10px;
+  }
+}

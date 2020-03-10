@@ -1,0 +1,37 @@
+.assets-list {
+  counter-reset: custom;
+
+  @at-root &__item {
+    counter-increment: custom;
+
+    &:not(:last-child) {
+    	margin-bottom: 20px;
+    }
+
+    &:before {
+      content: '0'counter(custom);
+      margin-bottom: 10px;
+      float: left;
+      width: 40px;
+      height: 40px;
+      text-align: center;
+      line-height: 40px; 
+      font-size: 2rem;
+      font-weight: bold;
+      background-color: $java;
+      color: $white;
+      letter-spacing: 1px;
+    }
+  }
+
+  @at-root &__header {
+  	text-transform: uppercase;
+  	margin-bottom: 5px;
+  }
+
+   &__header,
+   &__content {
+  	margin-left: calc(40px + 20px);
+  }
+
+}

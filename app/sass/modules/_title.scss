@@ -1,0 +1,21 @@
+.title {
+  text-transform: uppercase;
+
+  &_bar {
+    border-left: 9px solid;
+    padding-left: $gap;
+  }
+
+  &_chrome {
+  	border-color: $athens;
+  }
+
+  &_plato {
+  	border-color: $trout;
+  }
+
+  &_day {
+    color: $white;
+  }
+}
+

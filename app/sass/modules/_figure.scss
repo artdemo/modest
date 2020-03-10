@@ -1,0 +1,11 @@
+.map {
+	height: 350px;
+	margin-right: -$greatPad_s;
+	margin-left: -$greatPad_s;
+
+	@at-root &__snapshot {
+		width: 100%;
+		height: 100%;
+		border: none;
+	}
+}

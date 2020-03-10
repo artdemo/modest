@@ -1,0 +1,25 @@
+.nav {
+  width: 70%;
+  max-width: 300px;
+  background-color: $shark;
+ 
+  @at-root &__item {
+    margin: 0 $gap;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $edward;
+    }
+  }
+
+  @at-root &__link {
+    color: $edward;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    display: block;
+    padding: $gap 0;
+
+    &_active {
+      color: $java;
+    }
+  }
+}

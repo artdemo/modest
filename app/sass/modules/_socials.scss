@@ -1,0 +1,53 @@
+.socials {
+  @at-root &__item {
+    color: $white;
+    display: inline-block;
+    margin-right: 1px;
+
+    &_simple {
+
+    	&:not(:last-of-type) {
+    		margin-right: 20px;
+    	}
+    }
+  }
+
+  @at-root &__link {
+    display: inline-block;
+    text-align: center;
+    color: $white;
+
+    @at-root &_shine {
+      background-color: $iron;
+      font-size: 2.6rem;
+      height: 50px;
+      line-height: 50px;
+      width: 50px;
+
+      &:hover {
+        background-color: $iron-light;
+      }
+    }
+
+    @at-root &_blink {
+      // font-size: 1.75rem;
+      background-color: $spruce;
+      font-size: 2.6rem;
+      height: 50px;
+      line-height: 50px;
+      width: 50px;
+
+      &:hover {
+        background-color: $trout;
+      }
+    }
+
+    @at-root &_simple {
+    	font-size: 2rem;
+
+    	&:hover {
+    		color: $java;
+    	}
+    }
+  }
+}

@@ -1,0 +1,42 @@
+//================COLORS==================//
+$java: #23b7a4;//green
+$edward: #A4AEAD;//menu
+$white: #ffffff;
+$shark: #1d2126;//menu h2
+$shark-light: #292f36;//header team, work item footer
+$chost: #ccd0d7;//main text
+$athens: #E1E6EA;//h2 bar
+$athens-light: #eaeef1; //contact background
+$iron: #c8cdd0;//socials icons into about, team - footer, 
+$irony: #dde1e4;
+$iron-light: #d0d5d9;//socials icons hovered
+$oslo: #8d8f92; //team footer paragraph, contact text
+$spruce: #3A454D; //team footer background, lovely work background, background
+$trout: #4e5a62; //team hovered, work bar
+
+//================FONTS===================//
+$fontMain: 'Quattrocento Sans', serif;
+$fontSecond: 'Open Sans', serif;
+
+//================PATHS===================//
+$sliderStoreImg: './imgs';
+$iconFonts: './font';
+
+//================SIZES===================//
+$gap: 15px;
+$greatPad_s: 15px;
+$sizeToggleBtn: 40px;
+//================MIXINS==================//
+@mixin flex-container($gutter) {
+	box-sizing: border-box;
+	display: flex;
+	flex-flow: row wrap;
+	margin: -$gutter/2;
+}
+
+@mixin flex-item($col, $gutter) {
+	box-sizing: border-box;
+	width: calc(100% * #{$col} / 12 - #{$gutter});
+	flex: auto;
+	margin: $gutter/2;
+}

@@ -1,0 +1,34 @@
+.button {
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: bold;
+  line-height: 40px;
+  max-width: 200px;
+  padding: 0 20px;
+  text-transform: uppercase;
+  border: 2px solid;
+  color: $white;
+  cursor: pointer;
+
+  @at-root &_common {
+    border-color: $white;
+
+    &:hover {
+      @extend %flip;
+    }
+  }
+
+  @at-root &_reverse {
+    @extend %flip;
+
+    &:hover {
+      opacity: .7;
+    }
+  }
+}
+
+%flip {
+  background-color: $java;
+  border-color: $java;
+}

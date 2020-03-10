@@ -1,0 +1,29 @@
+.form {
+	text-align: center;
+
+	@at-root &__control {
+		margin-bottom: 20px;
+	}
+
+	@at-root &__area {
+		margin-bottom: 20px;
+	}
+
+	@at-root &__label {
+		display: none;
+	}
+
+	@at-root &__item {
+		padding: 15px;
+		border: none;
+		background-color: $athens-light;
+		border-radius: 3px;
+		width: 100%;
+		vertical-align: bottom;
+		resize: none;
+
+		&::placeholder {
+			color: $chost;
+		}
+	}
+}

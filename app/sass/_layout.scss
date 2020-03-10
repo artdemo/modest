@@ -1,0 +1,202 @@
+//==============PARENT================//
+.parent {
+  overflow-y: scroll;
+
+  @at-root .is-menu-visible {
+
+    .wrapper {
+      &:before {
+        z-index: 100;
+        opacity: .5;
+      }
+    }
+
+    .nav {
+      transform: translateX(0) !important;
+    }
+  }
+}
+
+//==============WRAPPER================//
+.wrapper {
+
+  &>.menu-toggle {
+    position: sticky;
+    position: -webkit-sticky;
+    margin-top: $gap;
+    z-index: 20;
+    top: $gap;
+    display: block;
+    margin-right: $gap;
+    margin-left: auto;
+  }
+
+  &:before {
+    content: '';
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    background-color: $white;
+    z-index: -1;
+  }
+}
+
+//==============COMMON================//
+.common {
+  padding: 0 $greatPad-s;
+  overflow: hidden;
+
+  .title {
+    margin-top: 40px;
+    margin-bottom: 30px;
+  }
+
+  .content {
+    margin-bottom: 20px;
+  }
+}
+
+//==============HEADER================//
+.header {
+  position: relative;
+  margin-top: -($sizeToggleBtn + $gap);
+
+  .logo {
+    margin: 0;
+    line-height: 0;
+    width: 70px;
+    position: absolute;
+    left: $greatPad_s;
+    top: $greatPad_s;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .slider__item {
+    padding-left: $greatPad_s;
+    padding-right: $greatPad_s;
+  }
+
+  .title {
+    margin-bottom: 20px;
+  }
+
+  .content {
+    margin-bottom: 40px;
+  }
+
+  .button {
+    float: left;
+    margin-right: 10px;
+  }
+  .nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 110;
+    transform: translateX(100%);
+
+	//=============NAVIGATION==============//
+    @at-root & {
+    	display: flex;
+    	flex-direction: column;
+    	justify-content: space-between;
+
+    	.menu-toggle {
+			margin: $gap;
+    	}
+    }
+  }
+}
+
+//==============GREETING================//
+.greeting {
+  border-bottom: 2px solid $irony;
+
+  .socials {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  .assets-list {
+    margin-bottom: 40px;
+  }
+}
+
+//==============TEAM================//
+.team {
+  padding-bottom: 40px;
+
+  .team-case {
+
+    &:not(:last-child) {
+      margin-bottom: $greatPad_s;
+    }
+  }
+}
+
+//==============WORK================//
+.work {
+  padding-bottom: 40px;
+  background-color: $spruce;
+  display: flex;
+  flex-direction: column;
+
+  .showcase {
+    &:not(:last-of-type) {
+      margin-bottom: $greatPad_s;
+    }
+  }
+
+  .button {
+    margin-top: 30px;
+    align-self: center;
+  }
+}
+
+//==============SERVICES================//
+.services {
+	padding-bottom: 40px;
+	
+	.skillcase {
+		&:not(:last-of-type) {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+//==============FEATURES================//
+.features {
+  padding-bottom: 40px;
+  background-color: $spruce;
+
+  .feature {
+    &:not(:last-of-type) {
+      margin-bottom: $greatPad_s;
+    }
+  }
+}
+
+//==============CONTACT================//
+.contact {
+  padding-bottom: 40px;
+
+  .map {
+    margin-bottom: 30px;
+  }
+}
+
+//==============FOOTER================//
+.footer {
+  background-color: $spruce;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100px;
+}

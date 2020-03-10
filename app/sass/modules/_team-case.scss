@@ -1,0 +1,54 @@
+.team-case {
+  display: flex;
+  flex-direction: column;
+
+  @at-root &__avatar {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  @at-root &__header {
+    // background-color: $athens;
+    order: 2;
+    background-color: $spruce;
+    padding: 16px;
+    text-align: center;
+    color: $white;
+  }
+
+  @at-root &__title {
+    color: $white;
+  }
+
+  @at-root &__content {
+    // color: $oslo;
+    color: $white;
+    font-size: 1.4rem;
+  }
+
+  .socials {
+    position: absolute;
+    padding-bottom: 16px;
+    // opacity: 0;
+  }
+
+  &:hover {
+    img {
+      opacity: .6;
+    }
+
+    .team-case__header {
+      background-color: $spruce;
+    }
+
+    .socials {
+      opacity: 1;
+    }
+  }
+}
