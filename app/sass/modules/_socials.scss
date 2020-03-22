@@ -6,9 +6,9 @@
 
     &_simple {
 
-    	&:not(:last-of-type) {
-    		margin-right: 20px;
-    	}
+      &:not(:last-of-type) {
+        margin-right: 20px;
+      }
     }
   }
 
@@ -24,13 +24,18 @@
       line-height: 50px;
       width: 50px;
 
+      @include render(tablet) {
+        height: 60px;
+        line-height: 60px;
+        width: 60px;
+      }
+
       &:hover {
         background-color: $iron-light;
       }
     }
 
     @at-root &_blink {
-      // font-size: 1.75rem;
       background-color: $spruce;
       font-size: 2.6rem;
       height: 50px;
@@ -43,11 +48,13 @@
     }
 
     @at-root &_simple {
-    	font-size: 2rem;
+      font-size: 1.8rem;
 
-    	&:hover {
-    		color: $java;
-    	}
+
+
+      &:hover {
+        color: $java;
+      }
     }
   }
 }

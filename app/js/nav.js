@@ -2,7 +2,7 @@ function Nav({
   menu,
   toggleBtnClass,
   actionClass,
-  preventDefault = false, 
+  iSpreventDefaulted = false, 
   breakPoint
 }) {
 
@@ -39,6 +39,8 @@ function Nav({
 
     body.style.position = 'fixed';
     body.style.top = `-${currentOffsetY}px`;
+    body.style.left = 0;
+    body.style.right =0;
   }
 
   function unfreezeBody() {
@@ -49,10 +51,8 @@ function Nav({
   this.init = function() {
 
     body.addEventListener(event, function(e) {
-
       let target = e.target;
       //If toggleBtn is clicked, then toggle menu
-      // if (toggleBtn.contains(target)) {
       if (target.closest(`.${toggleBtnClass}`)) {
 
         toggleMenu();
@@ -63,9 +63,9 @@ function Nav({
       //If menu is closed and it's not a toggleButton, then do nothing
       if (isMenuClosed) return;
       //If menu is opened and clicked, and it's not a link, then ignore it too
-      if (!menu.contains(target) || !target.closest('a')) return;
-
-      if (preventDefault) e.preventDefault();
+      if (menu.contains(target) && !target.closest('a')) return; 
+      //If it's a link then check preventDefault argument
+      if (iSpreventDefaulted) e.preventDefault();
 
       closeMenu();
     })

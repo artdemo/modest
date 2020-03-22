@@ -1,9 +1,9 @@
 .slider {
-    overflow: hidden;
+  overflow: hidden;
 
   @at-root &__page {
     display: flex;
-    transition: transform 1s .5s;
+    transition: transform 1s .2s;
   }
 
   @at-root &__item {
@@ -23,5 +23,26 @@
       background: url(#{$sliderStoreImg}/truck-hd.jpg) top left/cover;
 
     }
+  }
+
+  @at-root &__control {
+
+    li {
+      border: 2px solid $white;
+      border-radius: 50%;
+      width: 13px;
+      height: 13px;
+      float: left;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+  }
+
+
+  @at-root &__control__item_highlighted {
+    background: $white !important;
   }
 }

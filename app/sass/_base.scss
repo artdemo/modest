@@ -12,6 +12,7 @@ h1,
 h2,
 h3,
 h4,
+h5,
 p {
   margin: 0;
 }
@@ -34,8 +35,9 @@ button {
   padding: 0;
   margin: 0;
 }
+
 button {
-	border: none;
+  border: none;
 }
 
 input {
@@ -54,7 +56,8 @@ html {
 
 h2,
 h3,
-h4 {
+h4, 
+h5 {
   color: $shark;
   text-transform: uppercase;
 }
@@ -62,14 +65,34 @@ h4 {
 h2 {
   font-size: 2.6rem;
   line-height: 3.0rem;
+
+  @include render(tablet) {
+    font-size: 3.6rem;
+  }
 }
 
 h3 {
-  font-size: 1.6rem
+  font-size: 1.6rem;
+
+  @include render(tablet) {
+    font-size: 1.8rem;
+  }
 }
 
 h4 {
+  font-size: 1.6rem;
+
+  @include render(tablet) {
+    font-size: 1.7rem;
+  }
+}
+
+h5 {
   font-size: 1.4rem;
+
+  @include render(tablet) {
+    font-size: 1.6rem;
+  }
 }
 
 p {
@@ -83,4 +106,8 @@ textarea {
   font-size: 1.6rem;
   text-transform: uppercase;
   font-family: inherit;
+
+  @include render(tablet) {
+    font-size: 1.4rem;
+  }
 }

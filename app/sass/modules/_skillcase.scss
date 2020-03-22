@@ -3,10 +3,6 @@
   flex-direction: column;
   text-align: center;
 
-  // >* {
-  // 	border: 1px solid orange;
-  // }
-
   @at-root &__title {
     margin-bottom: 10px;
     order: 2;
@@ -19,7 +15,7 @@
   .icon {
     width: 100%;
     order: 1;
-    font-size: 30px;
+    font-size: 47px;
     color: $java;
     margin-bottom: 10px;
   }

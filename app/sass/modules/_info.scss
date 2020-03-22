@@ -1,5 +1,9 @@
 .info {
-	@at-root &__title {
-		margin-bottom: 20px;
-	}
+  @at-root &__title {
+    margin-bottom: 20px;
+
+    @include render(tablet) {
+      font-size: 2rem;
+    }
+  }
 }

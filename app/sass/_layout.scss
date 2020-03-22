@@ -13,6 +13,7 @@
 
     .nav {
       transform: translateX(0) !important;
+      display: none;
     }
   }
 }
@@ -27,8 +28,12 @@
     z-index: 20;
     top: $gap;
     display: block;
-    margin-right: $gap;
+    margin-right: $greatPad_s;
     margin-left: auto;
+
+    @include render(tablet) {
+      margin-right: $greatPad_m;
+    }
   }
 
   &:before {
@@ -47,6 +52,10 @@
 .common {
   padding: 0 $greatPad-s;
   overflow: hidden;
+
+  @include render(tablet) {
+    padding: 0 $greatPad_m;
+  }
 
   .title {
     margin-top: 40px;
@@ -70,6 +79,11 @@
     position: absolute;
     left: $greatPad_s;
     top: $greatPad_s;
+    z-index: 1;
+
+    @include render(tablet) {
+      left: $greatPad_m;
+    }
 
     img {
       width: 100%;
@@ -79,6 +93,21 @@
   .slider__item {
     padding-left: $greatPad_s;
     padding-right: $greatPad_s;
+
+    @include render(tablet) {
+      padding-left: $greatPad_m;
+      padding-right: $greatPad_m;
+    }
+  }
+
+  .slider__control {
+    position: absolute;
+    bottom: 2 * $gap;
+    right: $gap * 2 + $greatPad_s;
+
+    @include render(tablet) {
+      right: $gap * 2 + $greatPad_m;
+    }
   }
 
   .title {
@@ -93,24 +122,16 @@
     float: left;
     margin-right: 10px;
   }
+
   .nav {
     position: fixed;
+    display: flex;
+    flex-direction: column;
     top: 0;
     bottom: 0;
     right: 0;
     z-index: 110;
     transform: translateX(100%);
-
-	//=============NAVIGATION==============//
-    @at-root & {
-    	display: flex;
-    	flex-direction: column;
-    	justify-content: space-between;
-
-    	.menu-toggle {
-			margin: $gap;
-    	}
-    }
   }
 }
 
@@ -132,10 +153,32 @@
 .team {
   padding-bottom: 40px;
 
+  @include render(tablet) {
+    @include flex-container(($gap*2));
+  }
+
+  .title {
+    @include render(tablet) {
+      @include flex-item(12, ($gap*2));
+    }
+  }
+
   .team-case {
 
-    &:not(:last-child) {
+    &:not(:last-of-type) {
       margin-bottom: $greatPad_s;
+    }
+
+    @include render(tablet) {
+      @include flex-item(6, ($gap*2));
+
+      &:nth-last-of-type(2) {
+        margin-bottom: 0;
+      }
+
+      &:not(:nth-last-child(-n + 2)) {
+        margin-bottom: $greatPad_m;
+      }
     }
   }
 }
@@ -147,27 +190,55 @@
   display: flex;
   flex-direction: column;
 
+  @include render(tablet) {
+    @include flex-container(($gap*2));
+  }
+
+  .title {
+    @include render(tablet) {
+      @include flex-item(12, $gap*2);
+    }
+  }
+
   .showcase {
+    
     &:not(:last-of-type) {
       margin-bottom: $greatPad_s;
+    }
+
+    @include render(tablet) {
+      @include flex-item(6, ($gap*2));
+
+      &:nth-last-of-type(2) {
+        margin-bottom: 0;
+      }
+
+      &:not(:nth-last-of-type(-n + 2)) {
+        margin-bottom: $greatPad_m;
+      }
     }
   }
 
   .button {
     margin-top: 30px;
     align-self: center;
+
+    @include render(tablet) {
+      margin-right: auto;
+      margin-left: auto;
+    }
   }
 }
 
 //==============SERVICES================//
 .services {
-	padding-bottom: 40px;
-	
-	.skillcase {
-		&:not(:last-of-type) {
-			margin-bottom: 30px;
-		}
-	}
+  padding-bottom: 40px;
+
+  .skillcase {
+    &:not(:last-of-type) {
+      margin-bottom: 30px;
+    }
+  }
 }
 
 //==============FEATURES================//
