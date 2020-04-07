@@ -19,7 +19,7 @@
       font-size: 2rem;
       font-weight: bold;
       background-color: $java;
-      color: $white;
+      color: $white; 
       letter-spacing: 1px;
 
       @include render(tablet) {
@@ -37,6 +37,10 @@
 
   &__header,
   &__content {
-    margin-left: calc(40px + 20px);
+    margin-left: 60px;
+
+    @include render(tablet) {
+      margin-left: 70px;
+    }
   }
 }

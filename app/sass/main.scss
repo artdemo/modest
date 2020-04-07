@@ -19,7 +19,9 @@
 @import 'modules/form';
 @import 'modules/gravity';
 @import 'modules/menu-toggle';
+@import 'modules/logo';
+@import 'modules/wrapper';
 
-@import 'layout';
+@import 'layout';//& local states
 
 @import 'states/is-hidden';

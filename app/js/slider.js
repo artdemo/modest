@@ -3,8 +3,9 @@ function Slider({
   screen,
   slideClass,
   autoplay = false,
-  playInterval,
-  controlClass = false
+  playInterval = 2000,
+  controlContainer = false,
+  controlClass
 }) {
   let start,
     diff = 0,
@@ -16,6 +17,7 @@ function Slider({
     timerId,
     controlActiveClass,
     controls,
+    oldWidth,
     currentIndex = 0,
     isTouchable = false;
 
@@ -59,9 +61,28 @@ function Slider({
     start = 0;
     diff = 0;
   }
+
+  function getSlideRect() {
+    let prop = slider.getBoundingClientRect(),
+      xOffset = window.pageXOffset,
+      yOffset = window.pageYOffset;
+
+    let slideRect = {
+      x: prop.x + xOffset,
+      y: prop.y + yOffset,
+      right: prop.right + xOffset,
+      bottom: prop.bottom + yOffset,
+      width: prop.width
+    };
+
+    return slideRect;
+  }
   //If escape event fired, return a slide or show a new one
   function handleMove() {
-    if (!start || !diff) return;
+    if (!diff) {
+      start = 0;
+      return;
+    }
 
     if (Math.abs(diff) < slideRect.width / 4) {
       clearMove();
@@ -92,7 +113,7 @@ function Slider({
     start = 0;
     diff = 0;
 
-    if (controlClass) highlightControl(index);
+    if (controlContainer) highlightControl(index);
 
     currentIndex = index;
   }
@@ -108,21 +129,7 @@ function Slider({
     allSlides[allSlides.length - 1].style.order = '';
     offset = -1;
   }
-  //To change slides in case of autoplay
-  function autoChange() {
-    timerId = setTimeout(() => {
-      direction = 1;
-      let index = getNewIndex(direction);
-      //If it's the right edge, show the first slide and do all stuff from the start
-      if (index == 0) {
-        addFirstToEnd();
-        moveSlider(0);
-      }
-
-      setTimeout(showNextSlide, 0, index);
-    }, playInterval)
-  }
-
+ 
   function highlightControl(index) {
     //If it's the first call, so there is no control to remove highlight state
     if (index != currentIndex) controls[currentIndex].classList.remove(controlActiveClass);
@@ -135,7 +142,9 @@ function Slider({
     //Just one slide = no need to kick of all stuff
     if (!allSlides[1]) return;
     //Get the coords of the slide container
-    slideRect = slider.getBoundingClientRect();
+    // slideRect = slider.getBoundingClientRect();
+    slideRect = getSlideRect();
+    oldWidth = window.innerWidth;
     //Check on touchscreen and change events
     if ('ontouchstart' in window) {
       events = {
@@ -148,16 +157,17 @@ function Slider({
       isTouchable = true;
     }
     //If controls is on
-    if (controlClass) {
-      let controlContainer = document.createElement('ul');
-      controlContainer.classList.add(controlClass);
-      controlActiveClass = controlClass + "__item_highlighted";
+    if (controlContainer) {
+      controlActiveClass = controlClass + "_highlighted";
       //One control for each slide
-      controls = Array.prototype.map.call(allSlides, () => document.createElement('li'));
+      controls = Array.prototype.map.call(allSlides, () => {
+        let control = document.createElement('li');
+        control.classList.add(controlClass);
+
+        return control;
+      });
 
       controlContainer.append(...controls);
-
-      slider.append(controlContainer);
       //Highlight current control on init
       highlightControl(currentIndex);
       //Change slides on click
@@ -177,18 +187,17 @@ function Slider({
     slider.addEventListener(events.mousedown, function(e) {
       //Disable text selection when moving slide with mouse control
       if (!isTouchable) e.preventDefault();
-
       if (isInTransit) return;
 
-      start = isTouchable ? e.touches[0].clientX : e.clientX;
+      start = isTouchable ? e.touches[0].pageX : e.pageX;
     });
 
     slider.addEventListener(events.mousemove, function(e) {
       if (!start || isInTransit) return;
 
-      let clientX = isTouchable ? e.touches[0].clientX : e.clientX;
+      let pageX = isTouchable ? e.touches[0].pageX : e.pageX;
 
-      diff = clientX - start;
+      diff = pageX - start;
 
       if (diff == 0) return;
 
@@ -204,12 +213,16 @@ function Slider({
 
       //Emulate mouseout behaviour
       if (isTouchable) {
-        let clientY = e.touches[0].clientY;
+        let pageY = e.touches[0].pageY;
 
-        if (clientX < slideRect.x ||
-          clientX > slideRect.right ||
-          clientY < slideRect.y ||
-          clientY > slideRect.bottom) handleMove();
+
+        if (pageX < slideRect.x ||
+          pageX > slideRect.right ||
+          pageY < slideRect.y ||
+          pageY > slideRect.bottom) {
+
+          handleMove();
+      }
       }
     });
 
@@ -225,8 +238,8 @@ function Slider({
             addFirstToEnd();
             moveSlider(0);
           }
-
-          setTimeout(showNextSlide, 0, index);
+          //Set a small time gap between two transition states
+          setTimeout(showNextSlide, 50, index);
         }, playInterval)
       };
 
@@ -250,9 +263,12 @@ function Slider({
     }
 
     window.addEventListener('resize', function() {
-      if (timerId) clearTimeout(timerId);
+      //Is it really resizing or just horizont scrolling
+      if (window.innerWidth == oldWidth) return;
 
-      slideRect = slider.getBoundingClientRect();
+      oldWidth = window.innerWidth;
+
+      slideRect = getSlideRect();
     })
   }
 }

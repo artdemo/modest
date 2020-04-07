@@ -10,6 +10,16 @@
   border: 2px solid;
   color: $white;
   cursor: pointer;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: all ease-out 50ms .1s;
+
+  @include render(desktop_hd) {
+    line-height: 56px;
+    padding: 0 28px;
+    max-width: 280px;
+  }
 
   @at-root &_common {
     border-color: $white;

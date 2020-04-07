@@ -1,16 +1,28 @@
 function ScrollThis({
   menu,
   linkClass,
-  linkActiveClass
+  linkActiveClass,
+  breakpoint
 }) {
 
   let offsetY,
     centerY,
     currentActiveLink,
     topmostLink,
+    menuHeight,
     isThrottled = false,
     event = ('ontouchstart' in window ? 'touchend' : 'click'),
     linkContentEntries = new Map();
+
+  function setMenuHeight() {
+    if (window.innerWidth >= breakpoint) {
+      menuHeight = menu.offsetHeight;
+      return;
+    }
+
+    menuHeight = 0;
+    return;
+  }
 
   function getIdFromHref(elem) {
     let href = elem.getAttribute('href');
@@ -45,9 +57,8 @@ function ScrollThis({
 
       let content = document.getElementById(id),
         contentBorders = getContentBorders(content);
-
       //Find and save a link of the topmost content 
-      if (!i || top < j) {
+      if (!i || contentBorders.top < j) {
         i = link;
         j = contentBorders.top;
       }
@@ -102,14 +113,12 @@ function ScrollThis({
   }
 
   this.init = function() {
-    offsetY = centerY = null;
-
     listLinksContent();
     highlightLink();
+    setMenuHeight();
 
     window.addEventListener('scroll', function(e) {
-    	//To prevent the topmost link from being highlighted
-
+      //To prevent the topmost link from being highlighted
       throttleThis(highlightLink, 100);
 
     });
@@ -126,10 +135,25 @@ function ScrollThis({
 
         let content = contentObj.content;
 
-        content.scrollIntoView({ behavior: 'smooth' });
+        // content.scrollIntoView({ behavior: 'smooth' });
+
+        window.scrollTo({
+          top: content.offsetTop - menuHeight,
+          behavior: 'smooth'
+        })
+
+        console.log(menuHeight);
       }, 100)
     });
   }
+
+  window.addEventListener('resize', () => {
+    offsetY = centerY = null;
+    
+    setMenuHeight();
+    listLinksContent();
+    highlightLink();
+  })
 }
 
 export { ScrollThis as default };

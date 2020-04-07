@@ -6,17 +6,22 @@
   @at-root &__title {
     margin-bottom: 10px;
     order: 2;
+
+    @include render(desktop) {
+      margin-bottom: 18px;
+    } 
   }
 
   @at-root &__content {
     order: 3;
   }
 
-  .icon {
-    width: 100%;
+  @at-root &__icon {
     order: 1;
-    font-size: 47px;
-    color: $java;
     margin-bottom: 10px;
+
+    @include render(desktop) {
+      margin-bottom: 35px;
+    }
   }
 }

@@ -1,6 +1,7 @@
 //================COLORS==================//
 $java: #23b7a4; //green
 $edward: #A4AEAD; //menu
+$shuttle-gray: #5b6168;
 $white: #ffffff;
 $shark: #1d2126; //menu h2
 $shark-light: #292f36; //header team, work item footer
@@ -26,14 +27,26 @@ $iconFonts: './font';
 
 //================SIZES===================//
 $gap: 15px;
-$greatPad_s: 15px;
-$greatPad_m: 30px;
+$mainWidth: 1140px;
+$mainWidth_hd: 1596px;
+$maxClientWidth: 2560px;
 $sizeToggleBtn: 40px;
+$navHeight: 80px;
+
+//===============TRANSITION================//
+$teamCaseFunc: ease-out;
+$teamCaseDuration: 200ms;
+$teamCaseDelay: 50ms;
+$showcaseFunc: $teamCaseFunc;
+$showcaseDuration: $teamCaseDuration;
+$showcaseDelay: $teamCaseDelay;
 
 //===============BREAKPOINTES=============//
-$breakpoints: ('tablet': 768px,
+$breakpoints: ('phone': 450px,
+'tablet': 768px,
 'desktop': 1280px,
-'desktop_hd': 1980px);
+'desktop_hd': 1980px,
+'desktop_4k': 3840px);
 
 //================MIXINS==================//
 @mixin render($breakpoint) {
@@ -44,19 +57,32 @@ $breakpoints: ('tablet': 768px,
   }
 }
 
-@mixin flex-container($gutter) {
-  box-sizing: border-box;
+@mixin flex-row($x) {
+  $gutter: $x !global;
+
   display: flex;
   flex-flow: row wrap;
-  margin-right: -$gutter/2;
-  margin-left: -$gutter/2;
-  // justify-content: center;
+  margin-left: -$gutter;
+  margin-right: -$gutter;
 }
 
-@mixin flex-item($col, $gutter) {
-  box-sizing: border-box;
-  width: calc(100% * #{$col} / 12 - #{$gutter});
-  flex: 0 0 auto;
-  margin-right: $gutter/2;
-  margin-left: $gutter/2;
+@mixin flex-col() {
+  flex: none;
+  margin-left: $gutter;
+  margin-right: $gutter;
+}
+
+@mixin flex-width($cols) {
+  width: calc((100% * #{$cols} / 12) - (2 * #{$gutter}));
+}
+
+//=================ANIMATION=====================//
+@keyframes navDesk {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY($navHeight);
+  }
 }

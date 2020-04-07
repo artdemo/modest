@@ -7,11 +7,12 @@ const { src, dest, series, parallel, watch } = require('gulp'),
   gulpif = require('gulp-if'),
   rename = require('gulp-rename'),
   del = require('del'),
-  responsive = require('gulp-responsive');
+  responsive = require('gulp-responsive'),
+  cache = require('gulp-cached');
 
 sass.compiler = require('node-sass');
 
-const isBuild = false,
+const isBuild = true,
   config = {};
 
 config.mode = isBuild ? 'production' : 'development',
@@ -73,18 +74,29 @@ function js() {
 
 function img() {
   return src('./app/imgs/*.{jpg,png}')
+    .pipe(cache('image'))
     .pipe(responsive({
-      '*.jpg': [
-        {
-          width: 1980,
-          rename: { suffix: '-hd' }
-        }
-      ],
+      'background-*.jpg': [{
+        width: 3840,
+        rename: { suffix: '-3840' }
+      }, {
+        width: 1980,
+        rename: { suffix: '-1980' }
+      }],
+      '*.jpg': [{
+        width: 1080,
+        rename: { suffix: '-1080' }
+      }, {
+        width: 750,
+        rename: { suffix: '-750' }
+      }, {
+        width: 450,
+        rename: { suffix: '-450' }
+      }],
       '*.png': [
         {}
       ]
-    },
-    {
+    }, {
       quality: 70,
       progressive: true,
       withMetadata: false
@@ -98,8 +110,8 @@ function img() {
 }
 
 function font() {
-	return src('./app/font/**')
-	.pipe(dest('./dist/font'))
+  return src('./app/font/**')
+    .pipe(dest('./dist/font'))
 }
 
 function clean() {

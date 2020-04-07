@@ -3,10 +3,11 @@
   z-index: 10;
 
   @at-root &__img-box {
-
+    min-height: 150px;
     img {
       width: 100%;
       height: auto;
+      display: block;
       z-index: -1;
       position: relative;
     }
@@ -20,6 +21,15 @@
   	height: 100%;
   	display: flex;
   	flex-direction: column;
+
+    @include render(desktop) {
+      opacity: 0;
+      transition: opacity $showcaseFunc $showcaseDuration $showcaseDelay;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
 
 	&:before {
 		content: '+';
@@ -35,8 +45,7 @@
 
   @at-root &__title {
   	color: $white;
-  	padding: 16px;
-  	text-align: center;
+  	padding: 20px;
   	background-color: $shark-light;
   }
   
@@ -49,6 +58,7 @@
   	position: absolute;
   	background-color: $shark-light;
   	opacity: 0;
+          transition: opacity $showcaseFunc $showcaseDuration $showcaseDelay;
   }
 
   &:hover {

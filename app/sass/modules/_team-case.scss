@@ -5,37 +5,59 @@
   @at-root &__avatar {
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    min-height: 50px;
+    position: relative;
 
     img {
       width: 100%;
       display: block;
+      transition: opacity $teamCaseFunc $teamCaseDuration $teamCaseDelay;
     }
   }
 
   @at-root &__header {
-    // background-color: $athens;
-    order: 2;
+    flex-grow: 1;
+    order: 1;
     background-color: $spruce;
     padding: 16px;
-    text-align: center;
     color: $white;
+
+    @include render(desktop) {
+      transition: background-color $teamCaseFunc $teamCaseDuration $teamCaseDelay;
+      background-color: $athens;
+    }
   }
 
   @at-root &__title {
     color: $white;
+
+    @include render(desktop) {
+      transition: color $teamCaseFunc $teamCaseDuration $teamCaseDelay;
+      color: $shark-light;
+    }
   }
 
   @at-root &__content {
-    // color: $oslo;
     color: $white;
     font-size: 1.4rem;
+
+    @include render(desktop) {
+      transition: color $teamCaseFunc $teamCaseDuration $teamCaseDelay;
+      color: $oslo;
+    }
   }
 
   .socials {
     position: absolute;
     padding-bottom: 16px;
-    // opacity: 0;
+    align-self: flex-end;
+
+    @include render(desktop) {
+      align-self: center;
+      padding-bottom: 0;
+      transition: opacity $teamCaseFunc $teamCaseDuration $teamCaseDelay;
+      opacity: 0;
+    }
   }
 
   &:hover {
@@ -45,6 +67,14 @@
 
     .team-case__header {
       background-color: $spruce;
+    }
+
+    .team-case__title {
+      color: $white;
+    }
+
+    .team-case__content {
+      color: $white;
     }
 
     .socials {

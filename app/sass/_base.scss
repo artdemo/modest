@@ -31,7 +31,8 @@ a {
 
 input,
 textarea,
-button {
+button,
+figure {
   padding: 0;
   margin: 0;
 }
@@ -52,6 +53,10 @@ html {
   font-family: $fontMain;
   color: $chost;
   font-size: 62.5%;
+
+  @include render(desktop_hd) {
+    font-size: 87.5%;
+  }
 }
 
 h2,
@@ -64,16 +69,17 @@ h5 {
 
 h2 {
   font-size: 2.6rem;
-  line-height: 3.0rem;
+  line-height: 3.5rem;
 
   @include render(tablet) {
     font-size: 3.6rem;
+  line-height: 4rem;
   }
 }
 
 h3 {
   font-size: 1.6rem;
-
+  line-height: 2rem;
   @include render(tablet) {
     font-size: 1.8rem;
   }
@@ -104,7 +110,6 @@ p {
 input,
 textarea {
   font-size: 1.6rem;
-  text-transform: uppercase;
   font-family: inherit;
 
   @include render(tablet) {

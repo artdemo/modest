@@ -4,8 +4,9 @@
     display: inline-block;
     margin-right: 1px;
 
-    &_simple {
-
+    @at-root &_simple {
+      font-size: 1.8rem;
+ 
       &:not(:last-of-type) {
         margin-right: 20px;
       }
@@ -16,6 +17,14 @@
     display: inline-block;
     text-align: center;
     color: $white;
+
+    transition: all 50ms .1s;
+
+    @at-root &_simple {
+      &:hover {
+        color: $java;
+      }
+    }
 
     @at-root &_shine {
       background-color: $iron;
@@ -44,16 +53,6 @@
 
       &:hover {
         background-color: $trout;
-      }
-    }
-
-    @at-root &_simple {
-      font-size: 1.8rem;
-
-
-
-      &:hover {
-        color: $java;
       }
     }
   }
