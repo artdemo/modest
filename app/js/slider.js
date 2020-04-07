@@ -230,6 +230,9 @@ function Slider({
       isInTransit = false;
       //If autoplay is true, schedule to change slide
       if (autoplay) {
+
+      	if (timerId) clearTimeout(timerId);
+
         timerId = setTimeout(() => {
           direction = 1;
           let index = getNewIndex(direction);
