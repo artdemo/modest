@@ -18,6 +18,7 @@ function Slider({
     controlActiveClass,
     controls,
     oldWidth,
+    focusable = [],
     currentIndex = 0,
     isTouchable = false;
 
@@ -26,6 +27,40 @@ function Slider({
     mousemove: 'mousemove',
     click: 'click',
     mouseup: 'mouseup'
+  }
+  //Find all elems inside parent that have tabindex >= 0 and store it in array
+  function findAllFocusable(index, elem) {
+    let children = elem.children;
+
+    if (!focusable[index]) focusable[index] = [];
+
+    if (children.length == 0) return;
+
+    Array.prototype.forEach.call(children, child => {
+
+      if (child.tabIndex >= 0) {
+
+        focusable[index].push(child);
+      }
+
+      findAllFocusable(index, child);
+    })
+  }
+
+  function resetAllTabindex() {
+    focusable.forEach(item => {
+      item.forEach(item => {
+        item.tabIndex = -1;
+      })
+    })
+  }
+
+  function addTabindex(index) {
+    if (focusable[index].length == 0) return;
+
+    focusable[index].forEach(item => {
+      item.tabIndex = 0;
+    })
   }
   //Move slider on a given distance
   function moveSlider(diff) {
@@ -112,6 +147,9 @@ function Slider({
 
     start = 0;
     diff = 0;
+    //Add tabindex only to the current slider's children
+    resetAllTabindex();
+    addTabindex(index);
 
     if (controlContainer) highlightControl(index);
 
@@ -129,7 +167,7 @@ function Slider({
     allSlides[allSlides.length - 1].style.order = '';
     offset = -1;
   }
- 
+
   function highlightControl(index) {
     //If it's the first call, so there is no control to remove highlight state
     if (index != currentIndex) controls[currentIndex].classList.remove(controlActiveClass);
@@ -142,9 +180,15 @@ function Slider({
     //Just one slide = no need to kick of all stuff
     if (!allSlides[1]) return;
     //Get the coords of the slide container
-    // slideRect = slider.getBoundingClientRect();
     slideRect = getSlideRect();
     oldWidth = window.innerWidth;
+    //Find all elems that have tabindex >= 0
+    Array.prototype.forEach.call(allSlides, (item, index) => {
+      findAllFocusable(index, item);
+    })
+    //Add tabindex only to the first seen slider
+    resetAllTabindex();
+    addTabindex(0);
     //Check on touchscreen and change events
     if ('ontouchstart' in window) {
       events = {
@@ -161,7 +205,7 @@ function Slider({
       controlActiveClass = controlClass + "_highlighted";
       //One control for each slide
       controls = Array.prototype.map.call(allSlides, () => {
-        let control = document.createElement('li');
+        let control = document.createElement('button');
         control.classList.add(controlClass);
 
         return control;
@@ -175,8 +219,8 @@ function Slider({
         if (isInTransit) return;
 
         let target = e.target;
-        if (!target.closest('li') || target == controls[currentIndex]) return;
-        //If changing slide is scheduled, then cancel it
+        if (!target.closest('button') || target == controls[currentIndex]) return;
+        //If slide changing is scheduled, then cancel it
         if (timerId) clearTimeout(timerId);
         //Find index and show corresponding slide
         let index = controls.indexOf(target);
@@ -222,7 +266,7 @@ function Slider({
           pageY > slideRect.bottom) {
 
           handleMove();
-      }
+        }
       }
     });
 
@@ -231,7 +275,7 @@ function Slider({
       //If autoplay is true, schedule to change slide
       if (autoplay) {
 
-      	if (timerId) clearTimeout(timerId);
+        if (timerId) clearTimeout(timerId);
 
         timerId = setTimeout(() => {
           direction = 1;

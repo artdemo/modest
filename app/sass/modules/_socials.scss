@@ -21,7 +21,8 @@
     transition: all 50ms .1s;
 
     @at-root &_simple {
-      &:hover {
+      &:hover,
+      &:focus {
         color: $java;
       }
     }
@@ -39,7 +40,8 @@
         width: 60px;
       }
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: $iron-light;
       }
     }
@@ -51,7 +53,8 @@
       line-height: 50px;
       width: 50px;
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: $trout;
       }
     }

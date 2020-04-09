@@ -15,20 +15,21 @@
     background-size: cover;
 
     @at-root &_src_1 {
+
       //========================PHONE=========================//
       @media(max-width: (map-get($breakpoints, 'tablet') - 1px)) {
-      background-image: url(#{$sliderStoreImg}/background-newlife-450.jpg);
+        background-image: url(#{$sliderStoreImg}/background-newlife-450.jpg);
       }
 
       @media (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (-webkit-min-device-pixel-ratio: 2),
-        (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-device-pixel-ratio: 2),
-        (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-resolution: 2dppx) {
+      (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-device-pixel-ratio: 2),
+      (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-resolution: 2dppx) {
         background-image: url(#{$sliderStoreImg}/background-newlife-750.jpg);
       }
 
       @media (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (-webkit-min-device-pixel-ratio: 3),
-        (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-device-pixel-ratio: 3),
-        (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-resolution: 3dppx) {
+      (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-device-pixel-ratio: 3),
+      (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-resolution: 3dppx) {
         background-image: url(#{$sliderStoreImg}/background-newlife-1080.jpg);
       }
 
@@ -49,27 +50,28 @@
       }
 
       @media (min-width: map-get($breakpoints, 'desktop_hd')) and (-webkit-min-device-pixel-ratio: 2),
-      (min-width: map-get($breakpoints, 'desktop_hd')) and (min-device-pixel-ratio: 2), 
-      (min-width: map-get($breakpoints, 'desktop_hd')) and (-webkit-min-device-pixel-ratio: 2)  {
+      (min-width: map-get($breakpoints, 'desktop_hd')) and (min-device-pixel-ratio: 2),
+      (min-width: map-get($breakpoints, 'desktop_hd')) and (-webkit-min-device-pixel-ratio: 2) {
         background-image: url(#{$sliderStoreImg}/background-newlife-3840.jpg);
       }
     }
 
     @at-root &_src_2 {
+
       //========================PHONE=========================//
       @media(max-width: (map-get($breakpoints, 'tablet') - 1px)) {
-      background-image: url(#{$sliderStoreImg}/background-mountain-450.jpg);
+        background-image: url(#{$sliderStoreImg}/background-mountain-450.jpg);
       }
 
       @media (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (-webkit-min-device-pixel-ratio: 2),
-        (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-device-pixel-ratio: 2),
-        (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-resolution: 2dppx) {
+      (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-device-pixel-ratio: 2),
+      (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-resolution: 2dppx) {
         background-image: url(#{$sliderStoreImg}/background-mountain-750.jpg);
       }
 
       @media (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (-webkit-min-device-pixel-ratio: 3),
-        (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-device-pixel-ratio: 3),
-        (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-resolution: 3dppx) {
+      (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-device-pixel-ratio: 3),
+      (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-resolution: 3dppx) {
         background-image: url(#{$sliderStoreImg}/background-mountain-1080.jpg);
       }
 
@@ -90,30 +92,31 @@
       }
 
       @media (min-width: map-get($breakpoints, 'desktop_hd')) and (-webkit-min-device-pixel-ratio: 2),
-      (min-width: map-get($breakpoints, 'desktop_hd')) and (min-device-pixel-ratio: 2), 
-      (min-width: map-get($breakpoints, 'desktop_hd')) and (-webkit-min-device-pixel-ratio: 2)  {
+      (min-width: map-get($breakpoints, 'desktop_hd')) and (min-device-pixel-ratio: 2),
+      (min-width: map-get($breakpoints, 'desktop_hd')) and (-webkit-min-device-pixel-ratio: 2) {
         background-image: url(#{$sliderStoreImg}/background-mountain-3840.jpg);
       }
     }
 
     @at-root &_src_3 {
+
       //========================PHONE=========================//
       @media(max-width: (map-get($breakpoints, 'tablet') - 1px)) {
-      background-image: url(https://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY<768+RATIO<2);
+        background-image: url(https://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY<768+RATIO<2);
       }
 
       @media (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (-webkit-min-device-pixel-ratio: 2),
-        (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-device-pixel-ratio: 2),
-        (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-resolution: 2dppx) {
+      (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-device-pixel-ratio: 2),
+      (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-resolution: 2dppx) {
         background-image: url(https://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY<768+RATIO>=2);
       }
 
       @media (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (-webkit-min-device-pixel-ratio: 3),
-        (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-device-pixel-ratio: 3),
-        (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-resolution: 3dppx) {
+      (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-device-pixel-ratio: 3),
+      (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-resolution: 3dppx) {
         background-image: url(https://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY<768+/RATIO>=3);
       }
-     
+
       //=========================TABLET========================//
       @media(min-width: map-get($breakpoints, 'tablet')) {
         background-image: url(https://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY>=768+/RATIO<2);
@@ -131,8 +134,8 @@
       }
 
       @media (min-width: map-get($breakpoints, 'desktop_hd')) and (-webkit-min-device-pixel-ratio: 2),
-      (min-width: map-get($breakpoints, 'desktop_hd')) and (min-device-pixel-ratio: 2), 
-      (min-width: map-get($breakpoints, 'desktop_hd')) and (-webkit-min-device-pixel-ratio: 2)  {
+      (min-width: map-get($breakpoints, 'desktop_hd')) and (min-device-pixel-ratio: 2),
+      (min-width: map-get($breakpoints, 'desktop_hd')) and (-webkit-min-device-pixel-ratio: 2) {
         background-image: url(https://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY>=1980+/RATIO>=2);
       }
     }
@@ -145,6 +148,13 @@
     height: 13px;
     float: left;
     cursor: pointer;
+    background: transparent;
+    transition: all ease-out 50ms .1s;
+
+    &:hover,
+    &:focus {
+      opacity: .5;
+    }
 
     &:not(:last-child) {
       margin-right: 8px;
@@ -152,6 +162,8 @@
   }
 
   @at-root &__control_highlighted {
-    background: $white !important;
+    background: $white;
+    opacity: 1 !important;
+    cursor: default;
   }
 }

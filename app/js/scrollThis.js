@@ -141,8 +141,6 @@ function ScrollThis({
           top: content.offsetTop - menuHeight,
           behavior: 'smooth'
         })
-
-        console.log(menuHeight);
       }, 100)
     });
   }
