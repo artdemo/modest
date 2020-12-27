@@ -102,41 +102,41 @@
 
       //========================PHONE=========================//
       @media(max-width: (map-get($breakpoints, 'tablet') - 1px)) {
-        background-image: url(https://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY<768+RATIO<2);
+        background-image: url(http://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY<768+RATIO<2);
       }
 
       @media (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (-webkit-min-device-pixel-ratio: 2),
       (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-device-pixel-ratio: 2),
       (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-resolution: 2dppx) {
-        background-image: url(https://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY<768+RATIO>=2);
+        background-image: url(http://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY<768+RATIO>=2);
       }
 
       @media (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (-webkit-min-device-pixel-ratio: 3),
       (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-device-pixel-ratio: 3),
       (max-width: (map-get($breakpoints, 'tablet') - 1px)) and (min-resolution: 3dppx) {
-        background-image: url(https://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY<768+/RATIO>=3);
+        background-image: url(http://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY<768+/RATIO>=3);
       }
 
       //=========================TABLET========================//
       @media(min-width: map-get($breakpoints, 'tablet')) {
-        background-image: url(https://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY>=768+/RATIO<2);
+        background-image: url(http://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY>=768+/RATIO<2);
       }
 
       @media (min-width: map-get($breakpoints, 'tablet')) and (-webkit-min-device-pixel-ratio: 2),
       (min-width: map-get($breakpoints, 'tablet')) and (min-device-pixel-ratio: 2),
       (min-width: map-get($breakpoints, 'tablet')) and (min-resolution: 2dppx) {
-        background-image: url(https://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY>=768+/RATIO>=2);
+        background-image: url(http://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY>=768+/RATIO>=2);
       }
 
       //=========================DESKTOP========================//
       @media (min-width: map-get($breakpoints, 'desktop')) {
-        background-image: url(https://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY>=1280+/RATIO<2);
+        background-image: url(http://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY>=1280+/RATIO<2);
       }
 
       @media (min-width: map-get($breakpoints, 'desktop_hd')) and (-webkit-min-device-pixel-ratio: 2),
       (min-width: map-get($breakpoints, 'desktop_hd')) and (min-device-pixel-ratio: 2),
       (min-width: map-get($breakpoints, 'desktop_hd')) and (-webkit-min-device-pixel-ratio: 2) {
-        background-image: url(https://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY>=1980+/RATIO>=2);
+        background-image: url(http://via.placeholder.com/1980/3A454D/FFCC00?text=DISPLAY>=1980+/RATIO>=2);
       }
     }
   }
